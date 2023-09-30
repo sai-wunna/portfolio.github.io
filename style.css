@@ -1,0 +1,672 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
+
+@font-face {
+  font-family: 'anurita';
+  src: url(anurati-free-font/ANURATI/Anurati-Regular.otf);
+}
+
+@font-face {
+  font-family: 'queensies';
+  src: url(queensides-font/Queensides-3z7Ey.ttf);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.main-wrapper {
+  max-width: 1000px;
+  height: 100%;
+  margin: 30px auto;
+  backdrop-filter: blur(10px);
+  padding: 20px auto;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Navigator _______start here */
+.navigator {
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 5px;
+  padding: 10px;
+  background-color: rgba(167, 167, 167, 0.696);
+  z-index: 100;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.navigator::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  left: 0;
+  /* top: 60px; */
+  background-color: white;
+  border-radius: 5px;
+  transform-origin: bottom;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+
+.navigator:hover::after {
+  transform: scaleX(0.8);
+  transform-origin: top;
+}
+
+#nav_brand,
+.nav_holder {
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: 'Roboto Mono', monospace;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.3s;
+  color: white;
+}
+#nav_brand:hover,
+.nav a:hover,
+.nav_holder:hover,
+.close-modal:hover {
+  color: rgb(255, 0, 0);
+  transition: color 0.3s;
+}
+
+.nav_holder {
+  display: none;
+}
+
+.navs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav {
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.nav a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.active_nav {
+  background-color: rgba(255, 255, 255, 0.872);
+}
+
+.active_nav a {
+  color: rgb(255, 3, 3);
+}
+/* modal of the nav start____ */
+.modal {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  padding: 30px 40px;
+  border-radius: 10px;
+  background-color: rgb(179, 179, 179);
+  text-align: left;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  padding: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+.thanks {
+  padding: 5px;
+  margin: 20px 0 0 0;
+  font-size: 16px;
+  border-radius: 20px;
+  background: rgb(192, 192, 192);
+  text-align: center;
+}
+.thanks a {
+  text-decoration: none;
+  color: red;
+}
+/* modal of the nav end_____ */
+/* navigator end___________ */
+
+.container {
+  min-height: 550px;
+  margin-top: 50px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 10;
+  border: 2px solid rgba(169, 169, 169, 0.534);
+  backdrop-filter: blur(15px);
+  position: relative;
+}
+
+/* Container info Style start________ */
+#info {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  padding: 20px;
+  border: none;
+  box-shadow: none;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+  gap: 50px;
+}
+
+/* Pseudo-element to create the background */
+#info::before {
+  content: '';
+  position: absolute;
+  left: 40%;
+  top: 60%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  border-radius: 0% 70% 0% 70%;
+  background: linear-gradient(0deg, rgb(222, 222, 222), rgba(0, 0, 0, 0));
+  z-index: -1;
+  transform: rotate(-45deg);
+  border-bottom: 3px solid red;
+}
+
+.profile {
+  width: 300px;
+  height: 300px;
+  border-radius: 0 0 50% 50%;
+  overflow: hidden;
+}
+
+.profile img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease-in-out;
+}
+
+.profile img:hover {
+  transform: scale(1.04);
+}
+
+.name {
+  position: relative;
+  bottom: 50px;
+  text-align: center;
+  color: rgb(86, 0, 0);
+}
+
+.name h2 {
+  font-size: 46px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-family: 'anurita';
+}
+
+.name p {
+  font-size: 18px;
+  font-weight: 200;
+  margin: 0;
+  font-family: 'Marcellus SC', serif;
+}
+
+/* Container_custom Style end________ */
+
+/* bio box start________________ */
+
+#bio {
+  text-align: left;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+#bio::before {
+  content: '';
+  position: absolute;
+  left: 10%;
+  top: 60%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  border-radius: 70% 0% 70% 0%;
+  transform: rotate(45deg);
+  background: linear-gradient(0deg, rgb(222, 222, 222), rgba(0, 0, 0, 0));
+  z-index: -1;
+  border-bottom: 3px solid red;
+}
+
+#bio h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #920000;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.learning_road {
+  text-align: left;
+}
+
+.mile_stone {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #0f0f0fe4;
+}
+
+.mile_stone ol {
+  list-style-type: circle;
+  padding-left: 20px;
+}
+
+.mile_stone li {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #340000;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* bio box end__________________ */
+
+/* responsive slider start______________  my focusing on _ skills */
+.slider-container {
+  display: block;
+}
+#skills::before {
+  content: '';
+  position: absolute;
+  left: 65%;
+  top: 65%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  border-radius: 0% 70% 0% 70%;
+  background: linear-gradient(0deg, rgb(222, 222, 222), rgba(0, 0, 0, 0));
+  z-index: -1;
+  transform: rotate(-35deg);
+  border-bottom: 3px solid red;
+}
+#skills h4 {
+  color: rgba(159, 0, 0, 0.597);
+  transition: color 0.3s ease-in-out;
+}
+#skills h4:hover {
+  color: rgb(184, 3, 3);
+}
+.slider {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.slide {
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+}
+.slide h4 {
+  font-family: 'Roboto Mono', monospace;
+}
+.slide h6 {
+  color: rgb(127, 0, 0);
+  margin: 5px auto;
+}
+.slide img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+#slide_one,
+#slide_two,
+#slide_three,
+#slide_four {
+  transition: 0.05s ease-in-out;
+}
+.slider_btn_box {
+  display: none;
+}
+.slide_btn {
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+#prevBtn {
+  position: relative;
+  background-color: transparent;
+  border-top: 2px solid rgb(112, 0, 0);
+  border-left: 2px solid rgb(112, 0, 0);
+  transform: rotate(-45deg);
+}
+#nextBtn {
+  position: relative;
+  background-color: transparent;
+  border-top: 2px solid rgb(112, 0, 0);
+  border-right: 2px solid rgb(112, 0, 0);
+  transform: rotate(45deg);
+}
+.focus_text {
+  cursor: pointer;
+  color: transparent;
+}
+.focus_text_header {
+  color: black;
+}
+.focus_text #m:hover {
+  color: rgb(0, 255, 30);
+}
+.focus_text #e:hover {
+  color: rgb(4, 4, 4);
+}
+.focus_text #r:hover {
+  color: rgb(0, 187, 255);
+}
+.focus_text #n:hover {
+  color: rgb(0, 109, 13);
+}
+/* responsive slider end______________  my focusing on _ skills */
+
+/* my projects start_____________ */
+
+#projects {
+  text-align: left;
+  padding: 20px;
+}
+#projects::before {
+  content: '';
+  position: absolute;
+  left: -20%;
+  top: 60%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  border-radius: 70% 0% 70% 0%;
+  transform: rotate(55deg);
+  background: linear-gradient(0deg, rgb(222, 222, 222), rgba(0, 0, 0, 0));
+  z-index: -1;
+  border-bottom: 3px solid red;
+}
+.project h3 {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.project_list {
+  list-style: none;
+  display: grid;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  text-align: center;
+}
+
+.project {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgb(201, 201, 201);
+  text-decoration: none;
+}
+.project a {
+  color: black;
+  text-decoration: none;
+}
+.project:hover {
+  border: 2px solid transparent;
+  background-color: rgba(251, 251, 251, 0.872);
+}
+.project a:hover {
+  color: rgba(255, 0, 0, 0.987);
+  transition: color 0.3s;
+}
+.project a:active {
+  color: black;
+}
+
+/* my projects end_____________ */
+
+/* Studied from start________________ */
+#studiedfrom {
+  text-align: left;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-family: Arial, sans-serif;
+}
+
+#studiedfrom h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.teacher_list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.teacher_list li {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.other_teacher {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #777;
+  font-family: 'Roboto Mono', monospace;
+}
+/* studied from end____________ */
+
+/* Footer start */
+.footer {
+  border-top: 2px solid black;
+  background-color: transparent;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact_me {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.contact_me li {
+  margin: 5px 0;
+  font-size: 16px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.contact_me li a {
+  text-decoration: none;
+  color: #686868;
+  transition: color 0.3s;
+}
+
+.contact_me li a:hover {
+  color: #f00;
+}
+
+.footer h6 {
+  margin-top: 20px;
+  font-size: 14px;
+  font-family: 'Roboto Mono', monospace;
+}
+/* Footer end */
+
+@media (max-width: 768px) {
+  body {
+    padding: 30px 5px;
+  }
+  body:before {
+    background-color: transparent;
+  }
+  .main-wrapper {
+    width: 100%;
+    margin: 5px;
+  }
+  /*  navbar_______start */
+  .navigator {
+    border: none;
+    margin-top: -30px;
+    padding: 5px;
+    display: block;
+  }
+  .navigator::after {
+    display: none;
+  }
+  .nav_controllers {
+    display: flex;
+    justify-content: space-between;
+  }
+  .navs {
+    position: absolute;
+    list-style: none;
+    width: 100%;
+    top: 45px;
+    right: 0;
+    display: block;
+    text-align: right;
+    background-color: rgb(179, 179, 179);
+    border-radius: 0 0 10px 10px;
+    justify-content: right;
+    display: none;
+  }
+  .nav {
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .nav_holder {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    left: 0;
+  }
+  /*  navbar_______end */
+  /* info start */
+  #info {
+    display: block;
+    align-items: center;
+    justify-content: space-around;
+    border: none;
+    box-shadow: none;
+  }
+  #info::before {
+    left: 40%;
+    top: 50%;
+    transform: rotate(-30deg);
+    width: 100%;
+    height: 50%;
+  }
+  .profile {
+    width: 90%;
+    max-width: 300px;
+    height: 90%;
+  }
+  .profile img {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    border-radius: 0 0 60% 40%;
+  }
+  .name {
+    position: relative;
+    bottom: 0px;
+    border: none;
+    text-align: center;
+    color: red;
+  }
+  .name h2 {
+    font-size: 22px;
+  }
+  /*  bio */
+  #bio h3 {
+    font-size: 20px;
+  }
+  /*  bio end */
+  /*  info end */
+  .slider-container {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    padding: 30px 10px;
+  }
+
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 0;
+  }
+
+  .slide {
+    flex: 0 0 calc(100% / 1);
+    text-align: center;
+    padding: 0;
+  }
+
+  .slide img {
+    width: 190px;
+    height: 190px;
+  }
+
+  .slider_btn_box {
+    position: relative;
+    display: flex;
+    bottom: 20px;
+    cursor: pointer;
+    top: 10px;
+    justify-content: space-between;
+  }
+  .focus_text {
+    margin-top: 50px;
+  }
+  /* projects start */
+  .project_list {
+    display: flex;
+    flex-direction: column;
+  }
+  /* projects end */
+}
